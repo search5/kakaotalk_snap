@@ -40,7 +40,7 @@ apps:
   # For example, users can configure the wine environment of this snap
   # by running `myapp.wine winecfg`.
   wine:
-    extensions: [ gnome-3-28 ]
+    extensions: [ gnome-3-38 ]
     command: bin/sommelier
     plugs:
       - home
@@ -51,7 +51,7 @@ apps:
  # The winetricks command can be used to run winetricks inside the wine
   # environment that this snap uses.
   winetricks:
-    extensions: [ gnome-3-28 ]
+    extensions: [ gnome-3-38 ]
     command: bin/sommelier winetricks
     plugs:
       - network
