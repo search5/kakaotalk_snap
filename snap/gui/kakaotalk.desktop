@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=KakaoTalk
+Categories=Graphics
+Exec=kakaotalk
+Icon=${SNAP}/meta/gui/photoscape.png
+Terminal=false
+StartupNotify=true
+StartupWMClass=KakaoTalk.exe
