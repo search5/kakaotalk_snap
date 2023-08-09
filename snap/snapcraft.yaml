@@ -21,8 +21,8 @@ environment:
   SOMMELIER_STRICT: "1"                                    # Make Sommelier exit when unset variable is used. (useful to find bugs in sommelier)
 
 apps:
-  photoscape:
-    extensions: [ gnome-3-28 ]
+  kakaotalk:
+    extensions: [ gnome-3-38 ]
     command: bin/sommelier run-exe
     environment:
       RUN_EXE: "C:/Program Files (x86)/Kakao/KakaoTalk/KakaoTalk.exe"
