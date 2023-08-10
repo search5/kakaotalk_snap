@@ -14,7 +14,7 @@ confinement: strict
 
 architectures:
   - build-on: amd64
-  - build-on: i386
+  # - build-on: i386
 
 environment:
   WINEDLLOVERRIDES: "$WINEDLLOVERRIDES;mscoree,mshtml="    # Prevent pop-ups about Wine Mono and Wine Gecko
@@ -28,6 +28,8 @@ apps:
       RUN_EXE: "C:/Program Files (x86)/Kakao/KakaoTalk/KakaoTalk.exe"
       INSTALL_EXE: "$SNAP/KakaoTalk_Setup.exe"
       INSTALL_FLAGS: "/S"
+      LD_PRELOAD: ":"
+      LD_LIBRARY_PATH: "/snap/kakaotalk/current/wine-runtime/usr/lib/i386-linux-gnu/samba/libreplace.so.0"
     plugs:
       - home
       - network
@@ -65,15 +67,16 @@ parts:
   # initializes and configures Wine and installs the Windows application.
   sommelier:
     plugin: make
-    source: https://github.com/snapcrafters/sommelier-core.git
+    source: https://github.com/mmtrt/sommelier-core.git
+    source-branch: "new-core22"
 
 # These plugs are used to connect the snap to the wine runtime.
 plugs:
-  wine-runtime:
+  wine-runtime-c22:
     interface: content
     target: $SNAP/wine-runtime
-    default-provider: wine-platform-runtime
-  wine-5-stable:
+    default-provider: wine-platform-runtime-core22
+  wine-7-stable:
     interface: content
     target: $SNAP/wine-platform
     default-provider: wine-platform-7-stable-core22
